@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Profile {% endblock %}
+{% block content %}
+
+  <main class="profile-page layout layout--3">
+    <div class="container">
+      <!-- Topics Start -->
+      {% include 'base/topics_component.html' %}
+      <!-- Topics End -->
+
+      <!-- Room List Start -->
+      <div class="roomList">
+        <div class="profile">
+          <div class="profile__avatar">
+            <div class="avatar avatar--large active">
+              <img src="{{ user.avatar.url }}" />
+            </div>
+          </div>
+          <div class="profile__info">
+            <h3>{{ user.name|title }}</h3>
+            <p>@{{ user.username }}</p>
+            <div class="row">
+              <div class="Col">
+                {% if user.facebook %}
+                      <a href="https://facebook.com/{{user.facebook}}" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                {% endif %}
+        
+                {% if user.twitter %}
+                      <a href="https://twitter.com/{{user.twitter}}" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                {% endif %}
+        
+                {% if user.linkedin %}
+                      <a href="https://www.linkedin.com/in/{{user.linkedin}}" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                {% endif %}
+        
+                {% if user.github %}
+                      <a href="http://github.com/{{user.github}}" target="_blank"><i class="fa-brands fa-github"></i></a>
+                {% endif %}
+        
+                {% if user.website %}
+                      <a href="{{user.website}}" target="_blank"><i class="fa-solid fa-globe"></i></a>
+                {% endif %}
+              </div>
+          </div>
+            {% if request.user == user %}
+              <a href="{% url 'update-user' %}" class="btn btn--main btn--pill">Edit Profile</a>
+            {% endif %}
+          </div>
+          <div class="profile__about">
+            <h3>About</h3>
+            <p>
+              {{ request.user.bio }}
+            </p>
+          </div>
+        </div>
+
+        <div class="roomList__header">
+          <div>
+            <h2>Study Rooms Hosted by {{ user.name }}</a>
+            </h2>
+          </div>
+        </div>
+        {% include 'base/feed_component.html' %}
+      </div>
+      <!-- Room List End -->
+
+      <!-- Activities Start -->
+      <div class="activities">
+        {% include 'base/activity_component.html' %}
+      </div>
+      <!-- Activities End -->
+    </div>
+  </main>
+
+{% endblock %}

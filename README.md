@@ -4,3 +4,5 @@
 
 # Install
 1 Create Virtual environment
+
+ virtualenv venv

@@ -15,3 +15,5 @@
 
  source venv/bin/active
 pipenv shell auto active
+
+3 Clone the repository and install the packages in the virtual enviroment:

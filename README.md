@@ -12,4 +12,6 @@
  pipenv shell
  
 2 Active Virtualenv
+
  source venv/bin/active
+pipenv shell auto active

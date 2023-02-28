@@ -1,4 +1,5 @@
 # programmers_community
+This is a stack overflow type website. If any programmer has any problem he can post there. Anyone who knows the solution can comment there
 
 # Local Environment
 
